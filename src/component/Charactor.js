@@ -29,7 +29,7 @@ const MarvelCharacters = () => {
         }
 
         const response = await axios.get(apiUrl);
-        console.log(response.data.data.results);
+        // console.log(response.data.data.results);
         setCharacters(response.data.data.results);
         setErrors(null);
       } catch (error) {

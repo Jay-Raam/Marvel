@@ -26,7 +26,7 @@ const MarvelComics = () => {
         }
 
         const response = await axios.get(apiUrl);
-        console.log(response.data.data.results);
+        // console.log(response.data.data.results);
         setErrors(null);
         setComics(response.data.data.results);
       } catch (error) {

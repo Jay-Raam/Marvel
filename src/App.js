@@ -210,7 +210,7 @@ export default function App() {
         </div>
 
         {showMenu && (
-          <nav className="transition-0.7s cubic-bezier(0.26, 0.18, 0.8, 0.59)">
+          <nav className="transition-0.7s cubic-bezier(0.26, 0.18, 0.8, 0.59) z-50">
             <ul className="flex justify-center flex-col items-center w-full ">
               <li>
                 <Link to="/" className="text-white" onClick={handleClick}>
