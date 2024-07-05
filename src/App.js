@@ -4,6 +4,23 @@ import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Charactor from "./component/Charactor";
 import Image001 from "./component/image/m7.jpg";
+import Image002 from "./component/image/deadpool.jpg";
+import Image003 from "./component/image/iranman.jpg";
+import Image004 from "./component/image/doctor.jpg";
+import Image005 from "./component/image/black.jpg";
+import Image006 from "./component/image/emma.jpg";
+import Image007 from "./component/image/captain.jpg";
+import Image008 from "./component/image/hulk.jpeg";
+import Image009 from "./component/image/loki.webp";
+import Image0010 from "./component/image/wanda.jpg";
+import Image0011 from "./component/image/thanos.jpg";
+import Image0012 from "./component/image/vision.jpg";
+import Image0013 from "./component/image/shang.jpg";
+import Image0014 from "./component/image/venam.jpg";
+import Image0015 from "./component/image/thor.jpg";
+import Image0016 from "./component/image/valkyrie.jpg";
+import Image0017 from "./component/image/cat.jpg";
+
 import Omic from "./component/omic";
 import { TiThMenuOutline, TiTimesOutline } from "react-icons/ti";
 import "./index.css";
@@ -12,83 +29,67 @@ import Copyright from "./component/copyright";
 const FavCharactor = [
   {
     name: "Deadpool",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8926324-large-2680196.jpg",
+    image: Image002,
   },
   {
     name: "Iran Man",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8654427-ezgif-1-2f113089e4.jpg",
+    image: Image003,
   },
   {
     name: "Docter strange",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8753901-ezgif-3-69b95d2d1b.jpg",
+    image: Image004,
   },
   {
     name: "Balck Panther",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8251800-black_panther_vol_8_1_devil_dog_comics_and_jolzar_collectibles_exclusive_virgin_variant.jpg",
+    image: Image005,
   },
   {
     name: "Emma Frost",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/11174/111743204/8925171-emmafrost.jpg",
+    image: Image006,
   },
   {
     name: "Captain America",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8459983-rco031_1650495781.jpg",
+    image: Image007,
   },
   {
     name: "Hulk",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/9174497-21.jpeg",
+    image: Image008,
   },
   {
     name: "Loki",
-    image:
-      "https://preview.redd.it/loki-god-of-stories-art-by-ktrew-v0-vtg32ateru1c1.png?auto=webp&s=68021da560e2f557baa88490439f4b8ba955e9a2",
+    image: Image009,
   },
   {
     name: "Wanda",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8926321-large-3540780.jpg",
+    image: Image0010,
   },
   {
     name: "Thanos",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/3/31666/5396935-thanos2016001-deodato-d9505.jpg",
+    image: Image0011,
   },
   {
     name: "Vision",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/1/10812/8925763-vision.jpg",
+    image: Image0012,
   },
   {
     name: " Shang-Chi",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/11141/111414280/8459239-4441601872-Shang.jpg",
+    image: Image0013,
   },
   {
     name: "Venom",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/11144/111442876/8759820-fgjfj.jpg",
+    image: Image0014,
   },
   {
     name: "Thor",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/11139/111399535/9140994-20231020_153307~3.jpg",
+    image: Image0015,
   },
   {
     name: " Valkyrie",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/11174/111743204/8926559-valkyrie.jpg",
+    image: Image0016,
   },
   {
     name: " Black Cat",
-    image:
-      "https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/9366060-large-8667727.jpg",
+    image: Image0017,
   },
 ];
 
