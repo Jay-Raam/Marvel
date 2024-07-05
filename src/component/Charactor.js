@@ -1,6 +1,3 @@
-// 9de244121f99e52ba39bf53128e5b7c4
-// 858042d684dd87865250d00091f70d1f64e746b5
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import md5 from "md5";
@@ -48,37 +45,41 @@ const MarvelCharacters = () => {
   };
 
   return (
-    <div className="marvel-charactors ">
+    <div className="marvel-charactors bg-black pb-6">
       <div className="relative h-11 w-[300px] mx-auto my-0 mt-7 ">
         <input
           placeholder="Search characters by name..."
-          className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100"
+          className="peer text-white h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-white focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100"
           type="text"
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <label className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+        <label className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-white transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-white after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-white peer-focus:after:scale-x-100 peer-focus:after:border-white peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
           Favorite Characters
         </label>
       </div>
 
       {loading && (
-        <div
-          class="loader text-center ml-[50%] mt-5 border-t-2 rounded-full border-gray-500 bg-gray-300 animate-spin
+        <div className="h-[100vh]">
+          <div
+            className="loader text-center ml-[50%] mt-5 border-t-2 rounded-full border-gray-500 bg-gray-300 animate-spin
 aspect-square w-8 flex justify-center items-center text-yellow-700"
-        ></div>
+          ></div>
+        </div>
       )}
 
-      <ul className="flex flex-wrap justify-center gap-7 max-w-[1200px] mx-auto my-0 mt-[3.25rem]">
+      <ul className="flex flex-wrap overflow-hidden justify-center gap-7 max-w-[1200px] mx-auto my-0 mt-[3.25rem]">
         {characters.map((character) => (
           <li
             key={character.id}
             className="card hover:bg-red-600 border rounded overflow-hidden shadow-md w-[300px] mx-auto my-0 flex flex-col items-center gap-3"
+            data-aos="fade-left"
           >
             {character.thumbnail && (
               <img
                 src={`${character.thumbnail.path}/portrait_medium.${character.thumbnail.extension}`}
                 alt={character.name}
+                data-aos="fade-down"
                 className="w-[300px] h-auto mx-auto my-0"
               />
             )}

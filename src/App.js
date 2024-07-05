@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Charactor from "./component/Charactor";
 import Image001 from "./component/image/m7.jpg";
 import Omic from "./component/omic";
-import { TiThMenuOutline } from "react-icons/ti";
+import { TiThMenuOutline, TiTimesOutline } from "react-icons/ti";
 import "./index.css";
 import Copyright from "./component/copyright";
 
@@ -165,15 +167,24 @@ const FavComic = [
 
 export default function App() {
   const [showMenu, setShowMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // State to track menu state
 
   const handleClick = () => {
+    setIsOpen(!isOpen);
     setShowMenu(!showMenu);
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
 
   return (
     <Router>
       <div className="App bg-black">
-        <div className="flex justify-evenly items-center gap-[3.5rem] max-w-[1200px] mx-auto my-0 py-2">
+        <div className="flex justify-evenly items-center gap-[3.5rem] max-w-[1200px] mx-auto my-0 py-2 pt-[1rem]">
           <div className="title flex justify-center items-center">
             <a
               href="https://marvel.com"
@@ -198,20 +209,21 @@ export default function App() {
                 ></path>
               </svg>
             </a>
-            <h1 className="text-center text-[1] lg:text-[23px] font-bold text-white">
-              Characters
-            </h1>
           </div>
           <div>
             <span onClick={handleClick} className="cursor-pointer text-white">
-              <TiThMenuOutline className="text-white" />
+              {isOpen ? (
+                <TiTimesOutline className="text-white" />
+              ) : (
+                <TiThMenuOutline className="text-white" />
+              )}
             </span>
           </div>
         </div>
 
         {showMenu && (
           <nav className="transition-0.7s cubic-bezier(0.26, 0.18, 0.8, 0.59) z-50">
-            <ul className="flex justify-center flex-col items-center w-full ">
+            <ul className="flex justify-center flex-col items-center w-full pb-7 gap-3">
               <li>
                 <Link to="/" className="text-white" onClick={handleClick}>
                   Home
@@ -248,20 +260,28 @@ export default function App() {
 function Home() {
   return (
     <section className="bg-white">
-      <div className="hero max-w-[1200px] mx-auto my-0 pb-3 h-[100vh] flex justify-center items-center">
-        <div className="container w-full mx-auto my-0 flex justify-center items-center gap-6 md:gap-[8rem] flex-wrap lg:flex-nowrap lg:flex-row-reverse">
-          <div className="Image">
-            <img src={Image001} alt="" className="h-auto lg:w-[700px]" />
+      <div className="hero max-w-[1200px] mx-auto my-0 pb-3 h-auto lg:h-[100vh] flex justify-center items-center">
+        <div className="container w-full mx-auto my-0 flex justify-center items-center gap-6 mt-8 lg:mt-0 flex-wrap lg:flex-nowrap lg:flex-row-reverse">
+          <div className="Image overflow-hidden">
+            <img
+              src={Image001}
+              alt=""
+              className="h-auto lg:w-[700px]"
+              data-aos="zoom-in-left"
+            />
           </div>
           <div className="hero-text ml-8">
-            <h1 className="text-[34px]">You favorite Comic and Characters</h1>
-            <p className="text-[20px] mb-3 text-gray-500">
+            <h1 className="text-[34px] mb-4" data-aos="fade-up">
+              You favorite Comic and Characters
+            </h1>
+            <p className="text-[17px] mb-3 text-gray-500" data-aos="fade-up">
               Find your fav Comic and Comic Charactor
             </p>
             <a
               href="https://marvel.com"
               target="_blank"
               rel="noopener noreferrer"
+              data-aos="fade-up"
             >
               <button className="group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-16 w-64 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
                 See more
@@ -272,7 +292,9 @@ function Home() {
       </div>
 
       <div className="history mt-16">
-        <h1 className="text-[34px] text-center mb-3">The Comic History</h1>
+        <h1 className="text-[34px] text-center mb-3" data-aos="zoom-in-up">
+          The Comic History
+        </h1>
         <p className="text-[20px] text-center">
           Comic books have a storied history that traces back to the late 19th
           century when humorous cartoons and comic strips began appearing in
@@ -294,17 +316,25 @@ function Home() {
       </div>
 
       <div className="favcomic max-w-[1200px] my-0 mx-auto mt-[5.5rem]">
-        <h1 className="title001 text-[16px] md:text-[34px] font-bold mt-10 text-center mb-16">
+        <h1
+          className="title001 text-[16px] md:text-[34px] font-bold mt-10 text-center mb-16"
+          data-aos="fade-up"
+        >
           My Fav Comic
         </h1>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 list-none p-0">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 overflow-hidden lg:grid-cols-4 gap-8 list-none p-0">
           {FavComic.map((item, index) => (
-            <li key={index} className="relative overflow-hidden">
+            <li
+              key={index}
+              className="relative overflow-hidden"
+              data-aos="fade-up-left"
+            >
               <div className="image-container">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-full h-auto"
+                  data-aos="fade-down"
                 />
               </div>
               <div className="bg-white back01 bg-opacity-75 p-2 absolute bottom-0 w-full">
@@ -317,17 +347,25 @@ function Home() {
       </div>
 
       <div className="favcharacter max-w-[1200px] my-0 mx-auto mt-[5.5rem]">
-        <h1 className="title001 text-[16px] md:text-[34px] font-bold text-center mb-16">
+        <h1
+          className="title001 text-[16px] md:text-[34px] font-bold text-center mb-16"
+          data-aos="fade-up"
+        >
           My Fav Charactors
         </h1>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 list-none p-0">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 overflow-hidden gap-8 list-none p-0">
           {FavCharactor.map((item, index) => (
-            <li key={index} className="relative overflow-hidden">
+            <li
+              key={index}
+              className="relative overflow-hidden"
+              data-aos="fade-up-left"
+            >
               <div className="image-container">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-full h-auto"
+                  data-aos="fade-down"
                 />
               </div>
               <div className="back bg-black bg-opacity-75 p-2 absolute bottom-0 w-full">

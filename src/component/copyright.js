@@ -4,8 +4,8 @@ const Copyright = ({ text }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="copyright">
-      <p className="py-3 text-center">
+    <div className="copyright py-3">
+      <p className="text-center mb-2">
         &copy; {currentYear} Copyright Received By
         <a
           href="https://jay-raam.github.io/Jayasriraam"
@@ -15,6 +15,18 @@ const Copyright = ({ text }) => {
         >
           {text}
         </a>
+      </p>
+      <p className="text-center text-gray-600 text-sm md:text-base">
+        ©
+        <a
+          href="https://marvel.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-1"
+        >
+          Marvel
+        </a>{" "}
+        2024
       </p>
     </div>
   );
