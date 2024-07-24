@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import md5 from "md5";
-import Image002 from "./image/m2.png";
+import Image002 from "./image/m7.jpg";
 
 const MarvelCharacters = () => {
   const [characters, setCharacters] = useState([]);

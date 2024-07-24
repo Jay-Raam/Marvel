@@ -1,0 +1,43 @@
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 15px;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+  align-items: center;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}

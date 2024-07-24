@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import md5 from "md5";
-import Image002 from "./image/m2.png";
+import Image002 from "./image/m7.jpg";
 
 const MarvelComics = () => {
   const [comics, setComics] = useState([]);
@@ -33,7 +33,7 @@ const MarvelComics = () => {
         console.error("Error fetching data:", error);
         setErrors("Not found any Character: " + error.message);
       } finally {
-        setLoading(false); // Stop loading animation
+        setLoading(false);
       }
     };
 
