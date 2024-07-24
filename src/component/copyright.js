@@ -8,7 +8,7 @@ const Copyright = ({ text }) => {
       <p className="text-center mb-2">
         &copy; {currentYear} Copyright Received By
         <a
-          href="https://jay-raam.github.io/Jayasriraam"
+          href="https://jayasriraam.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="ml-1"
