@@ -4,7 +4,6 @@ import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Charactor from "./component/Charactor";
 import Image001 from "./component/image/m7.jpg";
-import Slider from "./component/SliderComponent";
 import ScrollerComponent from "./component/ScrollerComponent";
 import { FavCharactor, FavComic } from "./Detailsofchar";
 import Omic from "./component/omic";
@@ -33,11 +32,7 @@ export default function App() {
       <div className="App bg-black">
         <div className="flex justify-evenly items-center gap-[3.5rem] max-w-[1200px] mx-auto my-0 py-2 pt-[1rem]">
           <div className="title flex justify-center items-center">
-            <a
-              href="https://marvel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link to="/">
               <svg
                 width="130"
                 height="52"
@@ -55,7 +50,7 @@ export default function App() {
                   d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
           <div>
             <span onClick={handleClick} className="cursor-pointer text-white">
@@ -102,13 +97,8 @@ export default function App() {
 function Home() {
   return (
     <section className="bg-white">
-      <div className="w-full">
-        <Slider />
-        <ScrollerComponent speed="fast" />
-      </div>
-
-      <div className="hero max-w-[1200px] mx-auto my-0 pb-3 h-auto mt-10 flex justify-center items-center">
-        <div className="container w-full mx-auto my-0 flex justify-center items-center gap-6 mt-8 lg:mt-0 flex-wrap lg:flex-nowrap lg:flex-row-reverse">
+      <div className="hero max-w-[1200px] mx-auto my-0 pb-3 h-auto flex justify-center items-center">
+        <div className="container w-full mx-auto my-0 flex justify-center items-center gap-6 mt-8 lg:mt-20 flex-wrap lg:flex-nowrap lg:flex-row-reverse">
           <div className="Image overflow-hidden">
             <img
               src={Image001}
@@ -193,7 +183,11 @@ function Home() {
         </ul>
       </div>
 
-      <div className="favcharacter max-w-[1200px] my-0 mx-auto mt-[5.5rem]">
+      <div className="w-full mt-5">
+        <ScrollerComponent speed="fast" />
+      </div>
+
+      <div className="favcharacter max-w-[1200px] my-0 mx-auto mt-6">
         <h1
           className="title001 text-[16px] md:text-[34px] font-bold text-center mb-16"
           data-aos="fade-up"
