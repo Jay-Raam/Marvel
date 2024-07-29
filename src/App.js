@@ -80,6 +80,15 @@ export default function App() {
                   Comic Book
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="https://3d-jayasriraam.vercel.app/"
+                  className="text-white"
+                  onClick={handleClick}
+                >
+                  3D Character
+                </Link>
+              </li>
             </ul>
           </nav>
         )}
